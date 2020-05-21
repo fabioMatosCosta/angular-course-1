@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'; // EventEmitter should be imported from angular core, vsc will try to import from another place
 import {Course} from '../model/course';
 
 @Component({
@@ -11,9 +11,17 @@ export class CourseCardComponent implements OnInit {
   @Input()
   course:Course;
 
+  @Output('courseSelected') // Angular assumes the name of the custom event is bellow, unless you write it like this, this still works
+  courseEmitter = new EventEmitter<Course>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCourseViewed(){
+    console.log("this button is working");
+    this.courseEmitter.emit(this.course);
   }
 
 }

@@ -11,6 +11,9 @@ export class CourseCardComponent implements OnInit {
   @Input()
   course:Course;
 
+  @Input()
+  cardIndex:number;
+
   @Output('courseSelected') // Angular assumes the name of the custom event is bellow, unless you write it like this, this still works
   courseEmitter = new EventEmitter<Course>();
 

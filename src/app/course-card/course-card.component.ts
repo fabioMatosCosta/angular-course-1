@@ -27,4 +27,8 @@ export class CourseCardComponent implements OnInit {
     this.courseEmitter.emit(this.course);
   }
 
+  isImageVis(){
+    return this.course && this.course.iconUrl;
+  }
+
 }
